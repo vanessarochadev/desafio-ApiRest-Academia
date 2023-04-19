@@ -1,0 +1,88 @@
+public class Aluno {
+    private Long id;
+    private String nome;
+    private Integer idade;
+    private String endereco;
+    private String telefone;
+    private String matricula;
+
+    // getters e setters
+}
+
+public class Professor {
+    private Long id;
+    private String nome;
+    private Integer idade;
+    private String endereco;
+    private String telefone;
+    private String especialidade;
+
+    // getters e setters
+}
+
+public class Aula {
+    private Long id;
+    private String nome;
+    private String descricao;
+    private LocalDateTime horario;
+    private Professor professor;
+
+    // getters e setters
+}
+
+public class Equipamento {
+    private Long id;
+    private String nome;
+    private String descricao;
+    private Boolean disponibilidade;
+
+    // getters e setters
+}
+
+public class Treino {
+    private Long id;
+    private String nome;
+    private String descricao;
+    private List<Exercicio> exercicios;
+
+    // getters e setters
+}
+
+public class Exercicio {
+    private Long id;
+    private String nome;
+    private String descricao;
+    private Integer repeticoes;
+
+    // getters e setters
+}
+Passo 3: Criar um banco de dados para persistir as informações das entidades
+
+Podemos utilizar o Hibernate para criar as tabelas do banco de dados e realizar a persistência dos dados. Para isso, devemos criar as configurações do Hibernate e as classes de repositório para cada entidade.
+
+
+@Configuration
+@EnableTransactionManagement
+public class HibernateConfig {
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan(new String[] { "com.example.academia.model" });
+        sessionFactory.setHibernateProperties(hibernateProperties());
+        return sessionFactory;
+    }
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/academia");
+        dataSource.setUsername("root");
+        dataSource
+
+
+
+
+Regenerate response
